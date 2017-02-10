@@ -5,6 +5,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Livraria\Controller\Index' => 'Livraria\Controller\IndexController',
+            'categorias' => 'LivrariaAdmin\Controller\CategoriasController'
         ),
     ),
 
@@ -25,6 +26,17 @@ return array(
                     ),
                 ),
             ),
+
+            'livraria-admin' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/admin/[:controller][:action]',
+                    'defaults' => array(
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+
         ),
     ),
       
