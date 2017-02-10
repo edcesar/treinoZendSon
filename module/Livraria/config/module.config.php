@@ -27,10 +27,11 @@ return array(
                 ),
             ),
 
+
             'livraria-admin' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/admin/[:controller][:action][/page/:page]',
+                    'route'    => '/admin/[:controller][/:action][/page/:page]',
                     'defaults' => array(
                         'action'     => 'index',
                         'page' => 1,

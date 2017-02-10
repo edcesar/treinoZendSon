@@ -6,6 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\ArrayAdapter;
+use LivrariaAdmin\Form\Categoria as FrmCategoria;
 
 class CategoriasController extends AbstractActionController
 {
@@ -27,6 +28,13 @@ class CategoriasController extends AbstractActionController
         $paginator->setDefaultItemCountPerPage(1);
 
         return new ViewModel(['data' => $paginator, 'page' => $page]);
+    }
+
+    public function newAction()
+    {
+
+        $form = new FrmCategoria();
+        return new ViewModel(['form' => $form]);
     }
 
     protected function getEm()

@@ -11,14 +11,14 @@ class CategoriaFilter extends InputFilter
 			'name' => 'nome',
 			'required' => true,
 			'filters' => [
-				['name' => 'StripTgs'],
-				['name' => 'StrigTrim'],
+				['name' => 'StripTags'],
+				['name' => 'StringTrim'],
 			],
 			'validators' => [
 				[
 				  'name' => 'NotEmpty',
 				  'options' => [
-				  	'messages' => ['O nome não pode estar em branco!'],
+				  	'messages' => ['isEmpty' => 'O nome não pode estar em branco!'],
 				  ],
 
 				],
