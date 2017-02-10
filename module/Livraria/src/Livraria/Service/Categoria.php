@@ -2,7 +2,7 @@
 namespace Livraria\Service;
 
 use Doctrine\ORM\EntityManager;
-use Livraria\Entity\Categoria;
+use Livraria\Entity\Categoria as CategoriaService;
 
 class Categoria 
 {
@@ -18,7 +18,7 @@ class Categoria
 
 	public function insert(array $data)
 	{
-		$entity = new Categoria($data);
+		$entity = new CategoriaService($data);
 
 		$this->em->persist($entity);
 		$this->em->flush();

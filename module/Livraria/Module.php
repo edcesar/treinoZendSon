@@ -19,4 +19,15 @@ class Module
             ),
         );
     }
+
+    public function getServiceConfig()
+    {
+        return [
+            'factories' => [
+                'Livraria\Service\Categoria' => function($service){
+                    return new \Livraria\Service\Categoria($service->get('Doctrine\ORM\EntityManager'));
+                }
+            ],
+        ];
+    }
 }

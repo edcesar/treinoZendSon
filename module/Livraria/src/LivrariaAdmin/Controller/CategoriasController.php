@@ -25,7 +25,7 @@ class CategoriasController extends AbstractActionController
             
         $paginator = new Paginator(new ArrayAdapter($list));
         $paginator->setCurrentPageNumber($page);
-        $paginator->setDefaultItemCountPerPage(1);
+        $paginator->setDefaultItemCountPerPage(10);
 
         return new ViewModel(['data' => $paginator, 'page' => $page]);
     }
@@ -41,7 +41,10 @@ class CategoriasController extends AbstractActionController
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                // rotina de insert;
+
+                $service = $this->getServiceLocator()->get('Livraria\Service\Categoria');
+                
+                $service->insert($request->getPost()->toArray());
 
                 return $this->redirect()->toRoute('livraria-admin', ['controller' => 'categorias']);
             }
