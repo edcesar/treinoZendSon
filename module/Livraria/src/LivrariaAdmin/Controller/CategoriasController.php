@@ -34,6 +34,19 @@ class CategoriasController extends AbstractActionController
     {
 
         $form = new FrmCategoria();
+
+        $request = $this->getRequest();
+
+        if ($request->isPost()) {
+            $form->setData($request->getPost());
+
+            if ($form->isValid()) {
+                // rotina de insert;
+
+                return $this->redirect()->toRoute('livraria-admin', ['controller' => 'categorias']);
+            }
+        }
+
         return new ViewModel(['form' => $form]);
     }
 
