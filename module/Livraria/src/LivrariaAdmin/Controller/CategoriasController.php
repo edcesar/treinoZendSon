@@ -53,6 +53,34 @@ class CategoriasController extends AbstractActionController
         return new ViewModel(['form' => $form]);
     }
 
+    public function editAction()
+    {
+        $form = new FrmCategoria();
+
+        $request = $this->getRequest();
+
+        $repository = $this->getEm()->getRepository('Livraria\Entity\Categoria');
+        
+        $entity = $repository->find($this->params()->fromRoute('id', 0));
+        
+        if ($this->params()->fromRoute('id', 0)) {
+            $form->setData($entity->toArray());
+        }
+
+        if ($request->isPost()) {
+            $form->setData($request->getPost());
+            if ($form->isValid()) {
+
+                $service = $this->getServiceLocator()->get('Livraria\Service\Categoria');
+                
+                $service->update($request->getPost()->toArray());
+
+                return $this->redirect()->toRoute('livraria-admin', ['controller' => 'categorias']);
+            }
+        }
+        return new ViewModel(['form' =>$form]);
+    }
+
     protected function getEm()
     {
     	if (null === $this->em) {
