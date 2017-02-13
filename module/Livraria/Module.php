@@ -26,7 +26,10 @@ class Module
             'factories' => [
                 'Livraria\Service\Categoria' => function($service){
                     return new \Livraria\Service\Categoria($service->get('Doctrine\ORM\EntityManager'));
-                }
+                },
+                 'Livraria\Service\Livro' => function($service){
+                    return new \Livraria\Service\Livro($service->get('Doctrine\ORM\EntityManager'));
+                },
             ],
         ];
     }
