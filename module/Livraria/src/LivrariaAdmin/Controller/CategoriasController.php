@@ -81,6 +81,14 @@ class CategoriasController extends AbstractActionController
         return new ViewModel(['form' =>$form]);
     }
 
+    public function removerAction()
+    {
+        $service = $this->getServiceLocator()->get('Livraria\Service\Categoria');
+        if ($service->delete($this->params()->fromRoute('id',0))) {
+            return $this->redirect()->toRoute('livraria-admin', ['controller' => 'categorias']);
+        }
+    }
+
     protected function getEm()
     {
     	if (null === $this->em) {
