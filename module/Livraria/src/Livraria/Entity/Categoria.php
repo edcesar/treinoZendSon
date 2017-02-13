@@ -32,8 +32,10 @@ class Categoria {
      * @var string
      */
     protected $nome;
-    
-    
+
+    /**
+     * @ORM\OneToMany(targetEntity="Livraria\Entity\Livro", mappedBy="categoria")
+     */     
     protected $livros;
     
     public function getId() {
