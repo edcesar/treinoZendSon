@@ -1,9 +1,7 @@
 <?php
-
 namespace LivrariaAdmin\Controller;
 
-
-class CategoriasController extends CrudController
+class CategoriasController extends AbstractCrudController
 {
 	public function __construct()
     {

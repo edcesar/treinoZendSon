@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\ArrayAdapter;
 
-abstract class CrudController extends AbstractActionController
+abstract class AbstractCrudController extends AbstractActionController
 {
 	/**
 	 * @var EntityManager
